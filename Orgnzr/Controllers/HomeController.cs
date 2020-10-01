@@ -9,6 +9,7 @@ using Orgnzr.Models;
 
 namespace Orgnzr.Controllers
 {
+    //Test Comment Addition for Github Commit
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
