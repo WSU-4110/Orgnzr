@@ -25,12 +25,7 @@ namespace Orgnzr.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        public IActionResult Search()
+        public IActionResult Contacts()
         {
             return View();
         }
