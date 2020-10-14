@@ -11,12 +11,13 @@ namespace Orgnzr.Models
     {
         Text, Phone, Email
     }
-    public class clientContact
+    public class ClientContact
     {
-      //  public int Id { get; set; }
+        [Key]
+        public int clientId { get; set; }
         public string firstName { get; set; }
         public string lastName { get; set; }
-        [Key]
+      
         public string phoneNumber { get; set; }
         public string emailAddress { get; set; }
         public preferredContact? preferredContact { get; set; }

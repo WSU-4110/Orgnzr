@@ -10,51 +10,51 @@ using Orgnzr.Models;
 
 namespace Orgnzr.Controllers
 {
-    public class clientContactsController : Controller
+    public class ClientContactsController : Controller
     {
         private readonly contactContext _context;
 
-        public clientContactsController(contactContext context)
+        public ClientContactsController(contactContext context)
         {
             _context = context;
         }
 
-        // GET: clientContacts
+        // GET: ClientContacts
         public async Task<IActionResult> Index()
         {
             return View(await _context.Contacts.ToListAsync());
         }
 
-        // GET: clientContacts/Details/5
-        public async Task<IActionResult> Details(string id)
+        // GET: ClientContacts/Details/5
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var clientContact = await _context.Contacts
-                .FirstOrDefaultAsync(m => m.phoneNumber == id);
-            if (clientContact == null)
+            var ClientContact = await _context.Contacts
+                .FirstOrDefaultAsync(m => m.clientId == id);
+            if (ClientContact == null)
             {
                 return NotFound();
             }
 
-            return View(clientContact);
+            return View(ClientContact);
         }
 
-        // GET: clientContacts/Create
+        // GET: ClientContacts/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: clientContacts/Create
+        // POST: ClientContacts/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("firstName,lastName,phoneNumber,emailAddress,preferredContact")] clientContact clientContact)
+        public async Task<IActionResult> Create([Bind("clientId,firstName,lastName,phoneNumber,emailAddress,preferredContact")] ClientContact clientContact)
         {
             if (ModelState.IsValid)
             {
@@ -65,30 +65,30 @@ namespace Orgnzr.Controllers
             return View(clientContact);
         }
 
-        // GET: clientContacts/Edit/5
-        public async Task<IActionResult> Edit(string id)
+        // GET: ClientContacts/Edit/5
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var clientContact = await _context.Contacts.FindAsync(id);
-            if (clientContact == null)
+            var ClientContact = await _context.Contacts.FindAsync(id);
+            if (ClientContact == null)
             {
                 return NotFound();
             }
-            return View(clientContact);
+            return View(ClientContact);
         }
 
-        // POST: clientContacts/Edit/5
+        // POST: ClientContacts/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("firstName,lastName,phoneNumber,emailAddress,preferredContact")] clientContact clientContact)
+        public async Task<IActionResult> Edit(int id, [Bind("clientId,firstName,lastName,phoneNumber,emailAddress,preferredContact")] ClientContact ClientContact)
         {
-            if (id != clientContact.phoneNumber)
+            if (id != ClientContact.clientId)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace Orgnzr.Controllers
             {
                 try
                 {
-                    _context.Update(clientContact);
+                    _context.Update(ClientContact);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!clientContactExists(clientContact.phoneNumber))
+                    if (!ClientContactExists(ClientContact.clientId))
                     {
                         return NotFound();
                     }
@@ -113,41 +113,41 @@ namespace Orgnzr.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(clientContact);
+            return View(ClientContact);
         }
 
-        // GET: clientContacts/Delete/5
-        public async Task<IActionResult> Delete(string id)
+        // GET: ClientContacts/Delete/5
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var clientContact = await _context.Contacts
-                .FirstOrDefaultAsync(m => m.phoneNumber == id);
-            if (clientContact == null)
+            var ClientContact = await _context.Contacts
+                .FirstOrDefaultAsync(m => m.clientId == id);
+            if (ClientContact == null)
             {
                 return NotFound();
             }
 
-            return View(clientContact);
+            return View(ClientContact);
         }
 
-        // POST: clientContacts/Delete/5
+        // POST: ClientContacts/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var clientContact = await _context.Contacts.FindAsync(id);
-            _context.Contacts.Remove(clientContact);
+            var ClientContact = await _context.Contacts.FindAsync(id);
+            _context.Contacts.Remove(ClientContact);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool clientContactExists(string id)
+        private bool ClientContactExists(int id)
         {
-            return _context.Contacts.Any(e => e.phoneNumber == id);
+            return _context.Contacts.Any(e => e.clientId == id);
         }
     }
 }

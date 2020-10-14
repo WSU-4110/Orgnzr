@@ -14,11 +14,11 @@ namespace Orgnzr.Data
 
         }
 
-        public DbSet<clientContact> Contacts { get; set; }
+        public DbSet<ClientContact> Contacts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<clientContact>().ToTable("Contact");
+            modelBuilder.Entity<ClientContact>().ToTable("Contact");
         }
     }
 }
