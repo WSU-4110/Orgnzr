@@ -16,11 +16,12 @@ namespace Orgnzr.Project.Data
             context.Database.EnsureCreated();
 
             // Look for any students.
-            if (context.Contacts.Any())
+            if (context.Contacts.Any() && context.Product.Any())
             {
                 return;   // DB has been seeded
             }
 
+            //initialization of the contacts table for the ClientContact entity
             var clients = new ClientContact[]
             {
             new ClientContact{clientId = 1, firstName="Carson",lastName="Alexander",emailAddress="test@gmail.com",phoneNumber="222-333-4444",preferredContact=preferredContact.Text},
@@ -33,6 +34,19 @@ namespace Orgnzr.Project.Data
             foreach (ClientContact c in clients)
             {
                 context.Contacts.Add(c);
+            }
+            context.SaveChanges();
+
+            //initialization of the inventory table for the Inventory entity
+            var Product = new Product[]
+            {
+                new Product{productID = 1, productName="Billion Dollar Beauty Sponge", productDescription = "Blue sponge for cleaning makeup", productCategory = "Tools", productBrand = "Billion Dollar Brows", buyPrice = 10.00, sellPrice = 15.00, inStockAmount = 5, restockAmount =2 },
+                new Product{productID = 2, productName="Bronzilla", productDescription = "Tan packaging with half naked woman", productCategory = "Face", productBrand = "The Balm", buyPrice = 13.50, sellPrice = 17.00, inStockAmount = 10, restockAmount =2 },
+                new Product{productID = 3, productName="First Love", productDescription = "Medium pink with black cap", productCategory = "Lips", productBrand = "Major Shade", buyPrice = 16.00, sellPrice = 20.00, inStockAmount = 5, restockAmount =2 },
+            };
+            foreach (Product item in Product)
+            {
+                context.Product.Add(item);
             }
             context.SaveChanges();
 
