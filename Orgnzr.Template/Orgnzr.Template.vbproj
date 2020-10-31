@@ -97,26 +97,26 @@
     <Content Include="Content\css\site.css" />
     <Content Include="Scripts\favicon.ico" />
     <Content Include="Scripts\js\site.js" />
-    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap-grid.css" />
-    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap-grid.min.css" />
-    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap-reboot.css" />
-    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap-reboot.min.css" />
-    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap.css" />
-    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap.min.css" />
-    <Content Include="Scripts\lib\bootstrap\dist\js\bootstrap.bundle.js" />
-    <Content Include="Scripts\lib\bootstrap\dist\js\bootstrap.bundle.min.js" />
-    <Content Include="Scripts\lib\bootstrap\dist\js\bootstrap.js" />
-    <Content Include="Scripts\lib\bootstrap\dist\js\bootstrap.min.js" />
-    <Content Include="Scripts\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Scripts\lib\jquery-validation-unobtrusive\LICENSE.txt" />
-    <Content Include="Scripts\lib\jquery-validation\dist\additional-methods.js" />
-    <Content Include="Scripts\lib\jquery-validation\dist\additional-methods.min.js" />
-    <Content Include="Scripts\lib\jquery-validation\dist\jquery.validate.js" />
-    <Content Include="Scripts\lib\jquery-validation\dist\jquery.validate.min.js" />
-    <Content Include="Scripts\lib\jquery\dist\jquery.js" />
-    <Content Include="Scripts\lib\jquery\dist\jquery.min.js" />
-    <Content Include="Scripts\lib\jquery\LICENSE.txt" />
+    <Content Include="Content\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Scripts\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap\js\bootstrap.js" />
+    <Content Include="Scripts\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jquery-validation-unobtrusive\LICENSE.txt" />
+    <Content Include="Scripts\jquery-validation\additional-methods.js" />
+    <Content Include="Scripts\jquery-validation\additional-methods.min.js" />
+    <Content Include="Scripts\jquery-validation\jquery.validate.js" />
+    <Content Include="Scripts\jquery-validation\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery\jquery.js" />
+    <Content Include="Scripts\jquery\jquery.min.js" />
+    <Content Include="Scripts\jquery\LICENSE.txt" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -177,19 +177,19 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
-    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
-    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap-reboot.css.map" />
-    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap-reboot.min.css.map" />
-    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap.css.map" />
-    <Content Include="Scripts\lib\bootstrap\dist\css\bootstrap.min.css.map" />
-    <Content Include="Scripts\lib\bootstrap\dist\js\bootstrap.bundle.js.map" />
-    <Content Include="Scripts\lib\bootstrap\dist\js\bootstrap.bundle.min.js.map" />
-    <Content Include="Scripts\lib\bootstrap\dist\js\bootstrap.js.map" />
-    <Content Include="Scripts\lib\bootstrap\dist\js\bootstrap.min.js.map" />
-    <Content Include="Scripts\lib\bootstrap\LICENSE" />
-    <Content Include="Scripts\lib\jquery-validation\LICENSE.md" />
-    <Content Include="Scripts\lib\jquery\dist\jquery.min.map" />
+    <Content Include="Content\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="Content\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Content\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="Scripts\bootstrap\js\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap\js\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap\LICENSE" />
+    <Content Include="Scripts\jquery-validation\LICENSE.md" />
+    <Content Include="Scripts\jquery\jquery.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="NewFolder1\" />

@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Orgnzr.Data;
 
 namespace Orgnzr.Migrations
 {
     [DbContext(typeof(contactContext))]
-    partial class contactContextModelSnapshot : ModelSnapshot
+    [Migration("20201022235428_ServicesEntityCreation")]
+    partial class ServicesEntityCreation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

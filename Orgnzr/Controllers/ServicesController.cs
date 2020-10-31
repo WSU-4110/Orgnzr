@@ -10,22 +10,22 @@ using Orgnzr.Models;
 
 namespace Orgnzr.Controllers
 {
-    public class ProductController : Controller
+    public class ServicesController : Controller
     {
         private readonly contactContext _context;
 
-        public ProductController(contactContext context)
+        public ServicesController(contactContext context)
         {
             _context = context;
         }
 
-        // GET: Product
+        // GET: Services
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Product.ToListAsync());
+            return View(await _context.Services.ToListAsync());
         }
 
-        // GET: Product/Details/5
+        // GET: Services/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,40 +33,39 @@ namespace Orgnzr.Controllers
                 return NotFound();
             }
 
-            var product = await _context.Product
-                .FirstOrDefaultAsync(m => m.productID == id);
-            if (product == null)
+            var services = await _context.Services
+                .FirstOrDefaultAsync(m => m.serviceID == id);
+            if (services == null)
             {
                 return NotFound();
             }
 
-            return View(product);
+            return View(services);
         }
 
-        // GET: Product/Create
+        // GET: Services/Create
         public IActionResult Create()
         {
             return View();
-       
         }
 
-        // POST: Product/Create
+        // POST: Services/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("productID,productName,productDescription,productBrand,productCategory,buyPrice,sellPrice,inStockAmount,restockAmount")] Product product)
+        public async Task<IActionResult> Create([Bind("serviceID,serviceName,serviceDescription,serviceCategory")] Services services)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(product);
+                _context.Add(services);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(product);
+            return View(services);
         }
 
-        // GET: Product/Edit/5
+        // GET: Services/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -74,22 +73,22 @@ namespace Orgnzr.Controllers
                 return NotFound();
             }
 
-            var product = await _context.Product.FindAsync(id);
-            if (product == null)
+            var services = await _context.Services.FindAsync(id);
+            if (services == null)
             {
                 return NotFound();
             }
-            return View(product);
+            return View(services);
         }
 
-        // POST: Product/Edit/5
+        // POST: Services/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("productID,productName,productDescription,productBrand,productCategory,buyPrice,sellPrice,inStockAmount,restockAmount")] Product product)
+        public async Task<IActionResult> Edit(int id, [Bind("serviceID,serviceName,serviceDescription,serviceCategory")] Services services)
         {
-            if (id != product.productID)
+            if (id != services.serviceID)
             {
                 return NotFound();
             }
@@ -98,12 +97,12 @@ namespace Orgnzr.Controllers
             {
                 try
                 {
-                    _context.Update(product);
+                    _context.Update(services);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ProductExists(product.productID))
+                    if (!ServicesExists(services.serviceID))
                     {
                         return NotFound();
                     }
@@ -114,10 +113,10 @@ namespace Orgnzr.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(product);
+            return View(services);
         }
 
-        // GET: Product/Delete/5
+        // GET: Services/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -125,30 +124,30 @@ namespace Orgnzr.Controllers
                 return NotFound();
             }
 
-            var product = await _context.Product
-                .FirstOrDefaultAsync(m => m.productID == id);
-            if (product == null)
+            var services = await _context.Services
+                .FirstOrDefaultAsync(m => m.serviceID == id);
+            if (services == null)
             {
                 return NotFound();
             }
 
-            return View(product);
+            return View(services);
         }
 
-        // POST: Product/Delete/5
+        // POST: Services/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var product = await _context.Product.FindAsync(id);
-            _context.Product.Remove(product);
+            var services = await _context.Services.FindAsync(id);
+            _context.Services.Remove(services);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ProductExists(int id)
+        private bool ServicesExists(int id)
         {
-            return _context.Product.Any(e => e.productID == id);
+            return _context.Services.Any(e => e.serviceID == id);
         }
     }
 }

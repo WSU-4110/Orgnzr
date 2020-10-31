@@ -47,7 +47,7 @@ namespace Orgnzr.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Contact");
+                name: "Contact"); 
 
             migrationBuilder.DropTable(
                 name: "Product");
