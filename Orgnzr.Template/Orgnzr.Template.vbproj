@@ -92,21 +92,39 @@
     <Import Include="System.Web.UI.HtmlControls" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\favicon.ico" />
+    <Content Include="Controllers\clientContactsController.cs" />
+    <Content Include="Controllers\HomeController.cs" />
+    <Content Include="Controllers\ProductController.cs" />
+    <Content Include="Controllers\ServicesController.cs" />
+    <Content Include="Migrations\20201021015512_ProductEntityCreation.cs" />
+    <Content Include="Migrations\20201021015512_ProductEntityCreation.Designer.cs" />
+    <Content Include="Migrations\20201022235428_ServicesEntityCreation.cs" />
+    <Content Include="Migrations\20201022235428_ServicesEntityCreation.Designer.cs" />
+    <Content Include="Migrations\contactContextModelSnapshot.cs" />
+    <Content Include="Models\Appointment.cs" />
+    <Content Include="Models\clientContact.cs" />
+    <Content Include="Models\clientDbInitializer.cs" />
+    <Content Include="Models\contactContext.cs" />
+    <Content Include="Models\Product.cs" />
+    <Content Include="Models\Services.cs" />
+    <Content Include="Program.cs" />
+    <Content Include="Startup.cs" />
     <Content Include="ViewModels\ErrorViewModel.cs" />
+    <Content Include="Views\Product\Inventory.html" />
     <Content Include="Web.config" />
     <Content Include="Content\css\site.css" />
-    <Content Include="Scripts\favicon.ico" />
     <Content Include="Scripts\js\site.js" />
-    <Content Include="Content\bootstrap\css\bootstrap-grid.css" />
-    <Content Include="Content\bootstrap\css\bootstrap-grid.min.css" />
-    <Content Include="Content\bootstrap\css\bootstrap-reboot.css" />
-    <Content Include="Content\bootstrap\css\bootstrap-reboot.min.css" />
-    <Content Include="Content\bootstrap\css\bootstrap.css" />
-    <Content Include="Content\bootstrap\css\bootstrap.min.css" />
-    <Content Include="Scripts\bootstrap\js\bootstrap.bundle.js" />
-    <Content Include="Scripts\bootstrap\js\bootstrap.bundle.min.js" />
-    <Content Include="Scripts\bootstrap\js\bootstrap.js" />
-    <Content Include="Scripts\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\bootstrap\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap\bootstrap.css" />
+    <Content Include="Content\bootstrap\bootstrap.min.css" />
+    <Content Include="Scripts\bootstrap\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap\bootstrap.js" />
+    <Content Include="Scripts\bootstrap\bootstrap.min.js" />
     <Content Include="Scripts\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\jquery-validation-unobtrusive\LICENSE.txt" />
@@ -148,6 +166,8 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="appsettings.Development.json" />
+    <Content Include="appsettings.json" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -158,14 +178,24 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="packages.config" />
-    <Content Include="Views\ClientContacts\Create.cshtml" />
-    <Content Include="Views\ClientContacts\Delete.cshtml" />
-    <Content Include="Views\ClientContacts\Details.cshtml" />
-    <Content Include="Views\ClientContacts\Edit.cshtml" />
-    <Content Include="Views\ClientContacts\Index.cshtml" />
+    <Content Include="Views\clientContacts\Create.cshtml" />
+    <Content Include="Views\clientContacts\Delete.cshtml" />
+    <Content Include="Views\clientContacts\Details.cshtml" />
+    <Content Include="Views\clientContacts\Edit.cshtml" />
+    <Content Include="Views\clientContacts\Index.cshtml" />
     <Content Include="Views\Home\Calendar.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Inventory.cshtml" />
+    <Content Include="Views\Product\Create.cshtml" />
+    <Content Include="Views\Product\Delete.cshtml" />
+    <Content Include="Views\Product\Details.cshtml" />
+    <Content Include="Views\Product\Edit.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Services\Create.cshtml" />
+    <Content Include="Views\Services\Delete.cshtml" />
+    <Content Include="Views\Services\Details.cshtml" />
+    <Content Include="Views\Services\Edit.cshtml" />
+    <Content Include="Views\Services\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_ValidationScriptsPartial.cshtml" />
@@ -177,23 +207,21 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
-    <Content Include="Content\bootstrap\css\bootstrap-grid.css.map" />
-    <Content Include="Content\bootstrap\css\bootstrap-grid.min.css.map" />
-    <Content Include="Content\bootstrap\css\bootstrap-reboot.css.map" />
-    <Content Include="Content\bootstrap\css\bootstrap-reboot.min.css.map" />
-    <Content Include="Content\bootstrap\css\bootstrap.css.map" />
-    <Content Include="Content\bootstrap\css\bootstrap.min.css.map" />
-    <Content Include="Scripts\bootstrap\js\bootstrap.bundle.js.map" />
-    <Content Include="Scripts\bootstrap\js\bootstrap.bundle.min.js.map" />
-    <Content Include="Scripts\bootstrap\js\bootstrap.js.map" />
-    <Content Include="Scripts\bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="Content\bootstrap\bootstrap-grid.css.map" />
+    <Content Include="Content\bootstrap\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap\bootstrap.css.map" />
+    <Content Include="Content\bootstrap\bootstrap.min.css.map" />
+    <Content Include="Scripts\bootstrap\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\bootstrap\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap\bootstrap.min.js.map" />
     <Content Include="Scripts\bootstrap\LICENSE" />
     <Content Include="Scripts\jquery-validation\LICENSE.md" />
     <Content Include="Scripts\jquery\jquery.min.map" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="NewFolder1\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
