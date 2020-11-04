@@ -6,8 +6,90 @@
     <OldToolsVersion>2.0</OldToolsVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Remove="wwwroot\**" />
+    <Content Remove="wwwroot\**" />
+    <EmbeddedResource Remove="wwwroot\**" />
+    <None Remove="wwwroot\**" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Remove="Migrations\20201022234310_TestMigrate.cs" />
     <Compile Remove="Migrations\20201022234310_TestMigrate.Designer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Content\bootstrap\bootstrap-grid.css" />
+    <None Remove="Content\bootstrap\bootstrap-grid.css.map" />
+    <None Remove="Content\bootstrap\bootstrap-grid.min.css" />
+    <None Remove="Content\bootstrap\bootstrap-grid.min.css.map" />
+    <None Remove="Content\bootstrap\bootstrap-reboot.css" />
+    <None Remove="Content\bootstrap\bootstrap-reboot.css.map" />
+    <None Remove="Content\bootstrap\bootstrap-reboot.min.css" />
+    <None Remove="Content\bootstrap\bootstrap-reboot.min.css.map" />
+    <None Remove="Content\bootstrap\bootstrap.css" />
+    <None Remove="Content\bootstrap\bootstrap.css.map" />
+    <None Remove="Content\bootstrap\bootstrap.min.css" />
+    <None Remove="Content\bootstrap\bootstrap.min.css.map" />
+    <None Remove="Content\css\site.css" />
+    <None Remove="Content\favicon.ico" />
+    <None Remove="Scripts\bootstrap\bootstrap.bundle.js" />
+    <None Remove="Scripts\bootstrap\bootstrap.bundle.js.map" />
+    <None Remove="Scripts\bootstrap\bootstrap.bundle.min.js" />
+    <None Remove="Scripts\bootstrap\bootstrap.bundle.min.js.map" />
+    <None Remove="Scripts\bootstrap\bootstrap.js" />
+    <None Remove="Scripts\bootstrap\bootstrap.js.map" />
+    <None Remove="Scripts\bootstrap\bootstrap.min.js" />
+    <None Remove="Scripts\bootstrap\bootstrap.min.js.map" />
+    <None Remove="Scripts\bootstrap\LICENSE" />
+    <None Remove="Scripts\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+    <None Remove="Scripts\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+    <None Remove="Scripts\jquery-validation-unobtrusive\LICENSE.txt" />
+    <None Remove="Scripts\jquery-validation\additional-methods.js" />
+    <None Remove="Scripts\jquery-validation\additional-methods.min.js" />
+    <None Remove="Scripts\jquery-validation\jquery.validate.js" />
+    <None Remove="Scripts\jquery-validation\jquery.validate.min.js" />
+    <None Remove="Scripts\jquery-validation\LICENSE.md" />
+    <None Remove="Scripts\jquery\jquery.js" />
+    <None Remove="Scripts\jquery\jquery.min.js" />
+    <None Remove="Scripts\jquery\jquery.min.map" />
+    <None Remove="Scripts\jquery\LICENSE.txt" />
+    <None Remove="Scripts\js\site.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap\bootstrap-grid.css.map" />
+    <Content Include="Content\bootstrap\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap\bootstrap.css" />
+    <Content Include="Content\bootstrap\bootstrap.css.map" />
+    <Content Include="Content\bootstrap\bootstrap.min.css" />
+    <Content Include="Content\bootstrap\bootstrap.min.css.map" />
+    <Content Include="Content\css\site.css" />
+    <Content Include="Content\favicon.ico" />
+    <Content Include="Scripts\bootstrap\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\bootstrap\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap\bootstrap.js" />
+    <Content Include="Scripts\bootstrap\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrap\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap\LICENSE" />
+    <Content Include="Scripts\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jquery-validation-unobtrusive\LICENSE.txt" />
+    <Content Include="Scripts\jquery-validation\additional-methods.js" />
+    <Content Include="Scripts\jquery-validation\additional-methods.min.js" />
+    <Content Include="Scripts\jquery-validation\jquery.validate.js" />
+    <Content Include="Scripts\jquery-validation\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery-validation\LICENSE.md" />
+    <Content Include="Scripts\jquery\jquery.js" />
+    <Content Include="Scripts\jquery\jquery.min.js" />
+    <Content Include="Scripts\jquery\jquery.min.map" />
+    <Content Include="Scripts\jquery\LICENSE.txt" />
+    <Content Include="Scripts\js\site.js" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.9" />
