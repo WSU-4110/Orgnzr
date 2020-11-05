@@ -7,13 +7,34 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <!--   <a asp-action="Create">Create New &emsp;</a>  -->
+    <a asp-action="Create" class="btn btn-primary">Add New Product &raquo;</a>
+    &emsp;
+    <a asp-action="Inventory" class="btn btn-primary">&laquo; Switch to Inventory View &raquo;</a>
 
-    <button asp-action="Inventory"> Switch to Inventory View </button>
 </p>
 <table class="table">
     <thead>
         <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Brand
+            </th>
+            <th>
+                Category
+            </th>
+            <th>
+                Buy Price
+            </th>
+            <th>
+                Sell Price
+            </th>
+            <!--<th>
             <th>
                 @Html.DisplayNameFor(model => model.productName)
             </th>
@@ -32,87 +53,55 @@
             <th>
                 @Html.DisplayNameFor(model => model.sellPrice)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.inStockAmount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.restockAmount)
-            </th>
-            <th></th>
+
+    <th>
+        @Html.DisplayNameFor(model => model.inStockAmount)
+    </th>
+    <th>
+        @Html.DisplayNameFor(model => model.restockAmount)
+    </th>
+    <th></th>
+    -->
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
-    if (item.inStockAmount < item.restockAmount)
-    
-        {
-        <tr bgcolor ="Red">
-                <td>   
-                    @Html.DisplayFor(modelItem => item.productName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.productDescription)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.productBrand)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.productCategory)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.buyPrice)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.sellPrice)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.inStockAmount)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.restockAmount)
-                </td>
-            
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.productID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.productID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.productID">Delete</a>
-            </td>
-        </tr>
-        } 
-
-      else {
         <tr>
             <td>
-                Html.DisplayFor(modelItem => item.productName)
+                @Html.DisplayFor(modelItem => item.productName)
             </td>
             <td>
-                Html.DisplayFor(modelItem => item.productDescription)
+                @Html.DisplayFor(modelItem => item.productDescription)
             </td>
             <td>
-                Html.DisplayFor(modelItem => item.productBrand)
+                @Html.DisplayFor(modelItem => item.productBrand)
             </td>
             <td>
-                Html.DisplayFor(modelItem => item.productCategory)
+                @Html.DisplayFor(modelItem => item.productCategory)
             </td>
             <td>
-                Html.DisplayFor(modelItem => item.buyPrice)
+                @Html.DisplayFor(modelItem => item.buyPrice)
             </td>
             <td>
-                Html.DisplayFor(modelItem => item.sellPrice)
+                @Html.DisplayFor(modelItem => item.sellPrice)
+            </td>
+
+            <!--
+            <td>
+                @Html.DisplayFor(modelItem => item.inStockAmount)
             </td>
             <td>
-                Html.DisplayFor(modelItem => item.inStockAmount)
+                @Html.DisplayFor(modelItem => item.restockAmount)
             </td>
-            <td>
-                Html.DisplayFor(modelItem => item.restockAmount)
-            </td>
+
+    -->
+
             <td>
                 <a asp-action="Edit" asp-route-id="@item.productID">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.productID">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.productID">Delete</a>
             </td>
         </tr>
-        }
     }
 
     </tbody>
