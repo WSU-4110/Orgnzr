@@ -22,6 +22,7 @@ namespace Orgnzr.Data
         public DbSet<Product> Product { get; set; }
         public DbSet<Services> Services { get; set; }
 
+
       /*  protected override void OnConfiguring (DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(
