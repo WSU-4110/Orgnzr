@@ -25,14 +25,7 @@ namespace Orgnzr.Controllers
             return View(await _context.Product.ToListAsync());
         }
 
-        public async Task<IActionResult> Inventory()
-        {
-            return View(await _context.Product.ToListAsync());
-        }
 
-        public async Task<IActionResult> restockInventory()
-        {
-            return View(await _context.Product.ToListAsync());
         }
 
         // GET: Product/Details/5
