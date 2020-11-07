@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -18,5 +20,11 @@ namespace Orgnzr.Models
         public int appointmentFinishHour { get; set; }
         public int appointmentFinishMinute { get; set; }
         public double appointmentDuration { get; set; }
+
+        [ForeignKey("clientId")]
+        public virtual ClientContact Client { get; set; }
+
+        [ForeignKey("serviceID")]
+        public virtual Services Service { get; set; }
     }
 }
