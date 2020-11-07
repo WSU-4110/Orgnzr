@@ -25,7 +25,7 @@ namespace Orgnzr.Models
         [ForeignKey("clientId")]
         public virtual ClientContact Client { get; set; }
         [Display(Name = "Client ID")]
-        public virtual int clientId {get; set;}
+        public virtual int? clientId {get; set;}
 
         [ForeignKey("serviceId")]
         public virtual Services Service { get; set; }
