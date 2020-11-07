@@ -40,6 +40,10 @@ namespace Orgnzr.Data
             modelBuilder.Entity<ClientContact>()
                 .HasMany(c => c.Appointments)
                 .WithOne(e => e.Client);
+
+            modelBuilder.Entity<Services>()
+                .HasMany(c => c.Appointments)
+                .WithOne(e => e.Service);
         }
         
     }
