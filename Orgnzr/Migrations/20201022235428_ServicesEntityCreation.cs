@@ -5,7 +5,7 @@ namespace Orgnzr.Migrations
     public partial class ServicesEntityCreation : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
-        {
+        {/*
             migrationBuilder.CreateTable(
                 name: "Services",
                 columns: table => new
@@ -19,7 +19,7 @@ namespace Orgnzr.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Services", x => x.serviceID);
-                });
+                });*/
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

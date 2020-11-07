@@ -40,9 +40,9 @@ namespace Orgnzr.Project.Data
             //initialization of the inventory table for the Inventory entity
             var Product = new Product[]
             {
-                new Product{productID = 1, productName="Billion Dollar Beauty Sponge", productDescription = "Blue sponge for cleaning makeup", productCategory = "Tools", productBrand = "Billion Dollar Brows", buyPrice = 10.00, sellPrice = 15.00, inStockAmount = 5, restockAmount =2 },
-                new Product{productID = 2, productName="Bronzilla", productDescription = "Tan packaging with half naked woman", productCategory = "Face", productBrand = "The Balm", buyPrice = 13.50, sellPrice = 17.00, inStockAmount = 10, restockAmount =2 },
-                new Product{productID = 3, productName="First Love", productDescription = "Medium pink with black cap", productCategory = "Lips", productBrand = "Major Shade", buyPrice = 16.00, sellPrice = 20.00, inStockAmount = 5, restockAmount =2 },
+                new Product{productID = 1, productName="Billion Dollar Beauty Sponge", productDescription = "Blue sponge for cleaning makeup", productCategory = "Tools", productBrand = "Billion Dollar Brows", buyPrice = 10.00, sellPrice = 15.00 },
+                new Product{productID = 2, productName="Bronzilla", productDescription = "Tan packaging with half naked woman", productCategory = "Face", productBrand = "The Balm", buyPrice = 13.50, sellPrice = 17.00 },
+                new Product{productID = 3, productName="First Love", productDescription = "Medium pink with black cap", productCategory = "Lips", productBrand = "Major Shade", buyPrice = 16.00, sellPrice = 20.00 },
             };
             foreach (Product item in Product)
             {

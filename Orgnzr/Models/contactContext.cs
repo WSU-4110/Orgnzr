@@ -22,6 +22,7 @@ namespace Orgnzr.Data
         public DbSet<Product> Product { get; set; }
         public DbSet<Services> Services { get; set; }
         public DbSet<Appointment> Appointments { get; set; }
+        public DbSet<Inventory> Inventories { get; set; }
 
 
       /*  protected override void OnConfiguring (DbContextOptionsBuilder optionsBuilder)
@@ -36,10 +37,14 @@ namespace Orgnzr.Data
             modelBuilder.Entity<Product>().ToTable("Product");
             modelBuilder.Entity<Services>().ToTable("Services");
             modelBuilder.Entity<Appointment>().ToTable("Appointments");
+            modelBuilder.Entity<Inventory>().ToTable("Inventory");
 
             modelBuilder.Entity<ClientContact>()
                 .HasMany(c => c.Appointments)
                 .WithOne(e => e.Client);
+
+            modelBuilder.Entity<Inventory>()
+               .HasOne(d => d.Product);
         }
         
     }
