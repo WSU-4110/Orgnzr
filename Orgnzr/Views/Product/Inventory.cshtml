@@ -61,6 +61,8 @@
     <tbody>
         @foreach (var item in Model)
         {
+            if (item.inStockAmount > 0)
+            {
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.productName)
@@ -95,6 +97,7 @@
                     <a asp-action="Delete" asp-route-id="@item.productID">Delete</a>
                 </td>
             </tr>
+            }
         }
 
 
