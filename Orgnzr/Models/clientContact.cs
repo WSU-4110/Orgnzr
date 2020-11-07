@@ -21,5 +21,6 @@ namespace Orgnzr.Models
         public string phoneNumber { get; set; }
         public string emailAddress { get; set; }
         public preferredContact? preferredContact { get; set; }
+        public ICollection<Appointment> Appointments { get; set; }
     }
 }

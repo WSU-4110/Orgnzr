@@ -1,0 +1,95 @@
+﻿@model IEnumerable<Orgnzr.Models.Appointment>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.appointmentDay)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.appoitnmentMonth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.appointmentYear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.appointmentStartHour)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.appointmentStartMinute)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.appointmentFinishHour)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.appointmentFinishMinute)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.appointmentDuration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Client)
+            </th>
+            <th>
+                
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Service)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.appointmentDay)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.appoitnmentMonth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.appointmentYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.appointmentStartHour)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.appointmentStartMinute)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.appointmentFinishHour)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.appointmentFinishMinute)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.appointmentDuration)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Client.firstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Client.lastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Service.serviceName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.appointmentID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.appointmentID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.appointmentID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

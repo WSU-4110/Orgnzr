@@ -12,6 +12,7 @@ namespace Orgnzr.Models
     public class Appointment
     {
         [Key]
+        public int appointmentID { get; set; }
         public int appointmentDay { get; set; }
         public int appoitnmentMonth { get; set; }
         public int appointmentYear { get; set; }
@@ -23,8 +24,13 @@ namespace Orgnzr.Models
 
         [ForeignKey("clientId")]
         public virtual ClientContact Client { get; set; }
+        [Display(Name = "Client ID")]
+        public virtual int clientId {get; set;}
 
-        [ForeignKey("serviceID")]
+        [ForeignKey("serviceId")]
         public virtual Services Service { get; set; }
+        [Display(Name = "Service ID")]
+        public virtual int? serviceId { get; set; }
+
     }
 }

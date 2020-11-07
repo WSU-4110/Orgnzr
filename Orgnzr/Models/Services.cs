@@ -13,5 +13,6 @@ namespace Orgnzr.Models
         public string serviceName { get; set; }
         public string serviceDescription { get; set; }
         public string serviceCategory { get; set; }
+        public ICollection<Appointment> Appointments { get; set; }
     }
 }
