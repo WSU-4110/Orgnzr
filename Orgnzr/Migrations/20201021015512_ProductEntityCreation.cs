@@ -6,7 +6,7 @@ namespace Orgnzr.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            /*migrationBuilder.CreateTable(
+            migrationBuilder.CreateTable(
                 name: "Contact",
                 columns: table => new
                 {
@@ -21,7 +21,7 @@ namespace Orgnzr.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Contact", x => x.clientId);
-                });*/
+                });
 
             migrationBuilder.CreateTable(
                 name: "Product",
