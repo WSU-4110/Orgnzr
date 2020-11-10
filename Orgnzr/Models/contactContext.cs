@@ -22,13 +22,14 @@ namespace Orgnzr.Data
         public DbSet<Product> Product { get; set; }
         public DbSet<Services> Services { get; set; }
         public DbSet<Appointment> Appointments { get; set; }
+        public DbSet<Inventory> Inventories { get; set; }
 
 
-      /*  protected override void OnConfiguring (DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(
-                @"Server=(localdb)\mssqllocaldb;Database=OrgnzrDB;Integrated Security=True");
-        }*/
+        /*  protected override void OnConfiguring (DbContextOptionsBuilder optionsBuilder)
+          {
+              optionsBuilder.UseSqlServer(
+                  @"Server=(localdb)\mssqllocaldb;Database=OrgnzrDB;Integrated Security=True");
+          }*/
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -36,6 +37,7 @@ namespace Orgnzr.Data
             modelBuilder.Entity<Product>().ToTable("Product");
             modelBuilder.Entity<Services>().ToTable("Services");
             modelBuilder.Entity<Appointment>().ToTable("Appointments");
+            modelBuilder.Entity<Inventory>().ToTable("Inventory");
 
             modelBuilder.Entity<ClientContact>()
                 .HasMany(c => c.Appointments)
@@ -44,6 +46,7 @@ namespace Orgnzr.Data
             modelBuilder.Entity<Services>()
                 .HasMany(c => c.Appointments)
                 .WithOne(e => e.Service);
+
         }
         
     }

@@ -14,22 +14,22 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="inventoryID" />
             <div class="form-group">
-                <label asp-for="inStockAmount" class="control-label"></label>
+                <label asp-for="inStockAmount" class="control-label">In Stock Amount</label>
                 <input asp-for="inStockAmount" class="form-control" />
                 <span asp-validation-for="inStockAmount" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="restockAmount" class="control-label"></label>
+                <label asp-for="restockAmount" class="control-label">Restock Amount</label>
                 <input asp-for="restockAmount" class="form-control" />
                 <span asp-validation-for="restockAmount" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="productID" class="control-label"></label>
+                <label asp-for="productID" class="control-label">Product ID</label>
                 <select asp-for="productID" class="form-control" asp-items="ViewBag.productID"></select>
                 <span asp-validation-for="productID" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="productName" class="control-label"></label>
+                <label asp-for="productName" class="control-label">Product Name</label>
                 <input asp-for="productName" class="form-control" />
                 <span asp-validation-for="productName" class="text-danger"></span>
             </div>
