@@ -15,9 +15,10 @@ namespace Orgnzr.Models
         public string productBrand { get; set; }
         public string productCategory { get; set; }
         public double buyPrice { get; set; }
-        public double sellPrice { get; set; } 
+        public double sellPrice { get; set; }
         public Int16 inStockAmount { get; set; }
         public Int16 restockAmount { get; set; }
 
+        public ICollection<Product> Products { get; set; }
     }
 }

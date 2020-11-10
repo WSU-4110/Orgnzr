@@ -6,7 +6,7 @@ namespace Orgnzr.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
+           /* migrationBuilder.CreateTable(
                 name: "Appointments",
                 columns: table => new
                 {
@@ -48,7 +48,7 @@ namespace Orgnzr.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Appointments_serviceId",
                 table: "Appointments",
-                column: "serviceId");
+                column: "serviceId");*/
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
