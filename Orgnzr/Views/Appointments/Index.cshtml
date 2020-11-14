@@ -45,11 +45,8 @@
                 <!-- Html.DisplayNameFor(model => model.appointmentDuration) -->
             </th>
             <th>
-                Client ID
+                Client Name
                 <!--Html.DisplayNameFor(model => model.Client) -->
-            </th>
-            <th>
-                
             </th>
             <th>
                 Service ID
@@ -86,11 +83,9 @@
                 @Html.DisplayFor(modelItem => item.appointmentDuration)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Client.firstName)
+                @Html.DisplayFor(modelItem => item.Client.fullName)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Client.lastName)
-            </td>
+
             <td>
                 @Html.DisplayFor(modelItem => item.Service.serviceName)
             </td>

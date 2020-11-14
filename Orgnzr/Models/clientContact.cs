@@ -14,10 +14,17 @@ namespace Orgnzr.Models
     public class ClientContact
     {
         [Key]
+        
         public int clientId { get; set; }
         public string firstName { get; set; }
         public string lastName { get; set; }
-      
+        public string fullName
+        {
+            get
+            {
+                return firstName + " " + lastName;
+            }
+        }
         public string phoneNumber { get; set; }
         public string emailAddress { get; set; }
         public preferredContact? preferredContact { get; set; }

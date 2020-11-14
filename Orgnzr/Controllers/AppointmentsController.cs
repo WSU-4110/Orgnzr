@@ -49,7 +49,7 @@ namespace Orgnzr.Controllers
         // GET: Appointments/Create
         public IActionResult Create()
         {
-            ViewData["clientId"] = new SelectList(_context.Contacts, "clientId", "lastName");
+            ViewData["clientId"] = new SelectList(_context.Contacts, "clientId", "fullName");
             ViewData["serviceId"] = new SelectList(_context.Services, "serviceID", "serviceID");
             return View();
         }
