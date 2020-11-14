@@ -67,18 +67,18 @@
             @Html.DisplayFor(model => model.appointmentDuration)
         </dd>
         <dt class = "col-sm-2">
-            Client ID
+            Client Name
             <!-- Html.DisplayNameFor(model => model.Client) -->
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Client.clientId)
+            @Html.DisplayFor(model => model.Client.fullName)
         </dd>
         <dt class = "col-sm-2">
-            Service ID
+            Service Name
             <!-- Html.DisplayNameFor(model => model.Service) -->
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Service.serviceID)
+            @Html.DisplayFor(model => model.Service.serviceName)
         </dd>
     </dl>
 </div>

@@ -50,7 +50,7 @@ namespace Orgnzr.Controllers
         public IActionResult Create()
         {
             ViewData["clientId"] = new SelectList(_context.Contacts, "clientId", "fullName");
-            ViewData["serviceId"] = new SelectList(_context.Services, "serviceID", "serviceID");
+            ViewData["serviceId"] = new SelectList(_context.Services, "serviceID", "serviceName");
             return View();
         }
 
@@ -85,8 +85,8 @@ namespace Orgnzr.Controllers
             {
                 return NotFound();
             }
-            ViewData["clientId"] = new SelectList(_context.Contacts, "clientId", "clientId", appointment.clientId);
-            ViewData["serviceId"] = new SelectList(_context.Services, "serviceID", "serviceID", appointment.serviceId);
+            ViewData["clientId"] = new SelectList(_context.Contacts, "clientId", "fullName", appointment.clientId);
+            ViewData["serviceId"] = new SelectList(_context.Services, "serviceID", "serviceName", appointment.serviceId);
             return View(appointment);
         }
 
