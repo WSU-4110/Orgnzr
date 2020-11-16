@@ -14,7 +14,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="appointmentID" />
             <div class="form-group">
-                <label asp-for="appointmentDay" class="control-label">Appointment Day</label>
+                <label asp-for="appointmentDay" class="control-label">Day</label>
                 <input asp-for="appointmentDay" class="form-control" />
                 <span asp-validation-for="appointmentDay" class="text-danger"></span>
             </div>
@@ -49,18 +49,13 @@
                 <span asp-validation-for="appointmentFinishMinute" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="appointmentDuration" class="control-label">Duration</label>
-                <input asp-for="appointmentDuration" class="form-control" />
-                <span asp-validation-for="appointmentDuration" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="clientId" class="control-label">Client Name</label>
                 <select asp-for="clientId" class="form-control" asp-items="ViewBag.clientId"></select>
                 <span asp-validation-for="clientId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="serviceId" class="control-label">Service Name</label>
-                <select asp-for="serviceId" class="form-control" asp-items="ViewBag.serviceID"></select>
+                <select asp-for="serviceId" class="form-control" asp-items="ViewBag.serviceId"></select>
                 <span asp-validation-for="serviceId" class="text-danger"></span>
             </div>
             <div class="form-group">

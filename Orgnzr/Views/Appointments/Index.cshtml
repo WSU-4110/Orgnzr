@@ -4,53 +4,46 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Appointments</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Create New Appointment</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                Appointment Day
-                <!-- Html.DisplayNameFor(model => model.appointmentDay) -->
+                Day
             </th>
             <th>
                 Month
-                <!-- Html.DisplayNameFor(model => model.appoitnmentMonth) -->
             </th>
             <th>
                 Year
-                <!-- Html.DisplayNameFor(model => model.appointmentYear) -->
             </th>
             <th>
                 Start Hour
-                <!-- Html.DisplayNameFor(model => model.appointmentStartHour) -->
             </th>
             <th>
                 Start Minute
-                <!-- Html.DisplayNameFor(model => model.appointmentStartMinute) -->
             </th>
             <th>
                 Finish Hour
-                <!-- Html.DisplayNameFor(model => model.appointmentFinishHour) -->
             </th>
             <th>
                 Finish Minute
-                <!-- Html.DisplayNameFor(model => model.appointmentFinishMinute) -->
             </th>
             <th>
-                Duration
-                <!-- Html.DisplayNameFor(model => model.appointmentDuration) -->
+                Hour Duration
+            </th>
+            <th>
+                Minute Minute
             </th>
             <th>
                 Client Name
-                <!--Html.DisplayNameFor(model => model.Client) -->
             </th>
             <th>
-                Service Name
-                <!-- Html.DisplayNameFor(model => model.Service) -->
+                Service
             </th>
             <th></th>
         </tr>
@@ -80,14 +73,16 @@
                 @Html.DisplayFor(modelItem => item.appointmentFinishMinute)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.appointmentDuration)
+                @Html.DisplayFor(modelItem => item.appointmentHourDuration)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Client.fullName)
+                @Html.DisplayFor(modelItem => item.appointmentMinDuration)
             </td>
-
             <td>
-                @Html.DisplayFor(modelItem => item.Service.serviceName)
+                @Html.DisplayFor(modelItem => item.Client.clientId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Service.serviceID)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.appointmentID">Edit</a> |

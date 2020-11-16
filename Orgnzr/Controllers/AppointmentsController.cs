@@ -59,7 +59,7 @@ namespace Orgnzr.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("appointmentID,appointmentDay,appoitnmentMonth,appointmentYear,appointmentStartHour,appointmentStartMinute,appointmentFinishHour,appointmentFinishMinute,appointmentDuration,clientId,serviceId")] Appointment appointment)
+        public async Task<IActionResult> Create([Bind("appointmentID,appointmentDay,appoitnmentMonth,appointmentYear,appointmentStartHour,appointmentStartMinute,appointmentFinishHour,appointmentFinishMinute,clientId,serviceId")] Appointment appointment)
         {
             if (ModelState.IsValid)
             {
@@ -85,8 +85,8 @@ namespace Orgnzr.Controllers
             {
                 return NotFound();
             }
-            ViewData["clientId"] = new SelectList(_context.Contacts, "clientId", "fullName", appointment.clientId);
-            ViewData["serviceId"] = new SelectList(_context.Services, "serviceID", "serviceName", appointment.serviceId);
+            ViewData["clientId"] = new SelectList(_context.Contacts, "clientId", "clientId", appointment.clientId);
+            ViewData["serviceId"] = new SelectList(_context.Services, "serviceID", "serviceID", appointment.serviceId);
             return View(appointment);
         }
 
@@ -95,7 +95,7 @@ namespace Orgnzr.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("appointmentID,appointmentDay,appoitnmentMonth,appointmentYear,appointmentStartHour,appointmentStartMinute,appointmentFinishHour,appointmentFinishMinute,appointmentDuration,clientId,serviceId")] Appointment appointment)
+        public async Task<IActionResult> Edit(int id, [Bind("appointmentID,appointmentDay,appoitnmentMonth,appointmentYear,appointmentStartHour,appointmentStartMinute,appointmentFinishHour,appointmentFinishMinute,clientId,serviceId")] Appointment appointment)
         {
             if (id != appointment.appointmentID)
             {

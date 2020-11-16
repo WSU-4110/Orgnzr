@@ -20,8 +20,19 @@ namespace Orgnzr.Models
         public int appointmentStartMinute { get; set; }
         public int appointmentFinishHour { get; set; }
         public int appointmentFinishMinute { get; set; }
-        public double appointmentDuration { get; set; }
-
+        public double appointmentHourDuration { 
+            get
+            {
+                return appointmentFinishHour - appointmentStartHour;
+            } 
+        }
+        public double appointmentMinDuration
+        {
+            get
+            {
+                return appointmentFinishMinute - appointmentStartMinute;
+            }
+        }
         [ForeignKey("clientId")]
         public virtual ClientContact Client { get; set; }
         [Display(Name = "Client ID")]

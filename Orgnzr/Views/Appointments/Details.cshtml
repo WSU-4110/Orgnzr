@@ -10,77 +10,72 @@
     <h4>Appointment</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             Appointment Day
-            <!-- Html.DisplayNameFor(model => model.appointmentDay) -->
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.appointmentDay)
         </dd>
-        <dt class = "col-sm-2">
-            Month
-            <!-- Html.DisplayNameFor(model => model.appoitnmentMonth) -->
+        <dt class="col-sm-2">
+            Appointment Month
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.appoitnmentMonth)
         </dd>
-        <dt class = "col-sm-2">
-            Year
-            <!-- Html.DisplayNameFor(model => model.appointmentYear) -->
+        <dt class="col-sm-2">
+            Appointment Year
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.appointmentYear)
         </dd>
-        <dt class = "col-sm-2">
-            Start Hour
-            <!-- Html.DisplayNameFor(model => model.appointmentStartHour) -->
+        <dt class="col-sm-2">
+            Appointment Start Hour
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.appointmentStartHour)
         </dd>
-        <dt class = "col-sm-2">
-            Start Minute
-            <!-- Html.DisplayNameFor(model => model.appointmentStartMinute) -->
+        <dt class="col-sm-2">
+            Appointment Start Minute
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.appointmentStartMinute)
         </dd>
-        <dt class = "col-sm-2">
-            Finish Hour
-            <!-- Html.DisplayNameFor(model => model.appointmentFinishHour) -->
+        <dt class="col-sm-2">
+            Appointment Finish Hour
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.appointmentFinishHour)
         </dd>
-        <dt class = "col-sm-2">
-            Finish Minute
-            <!-- Html.DisplayNameFor(model => model.appointmentFinishMinute) -->
+        <dt class="col-sm-2">
+            Appointment Finish Minute
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.appointmentFinishMinute)
         </dd>
-        <dt class = "col-sm-2">
-            Duation
-            <!-- Html.DisplayNameFor(model => model.appointmentDuration) -->
+        <dt class="col-sm-2">
+            Appointment Hour Duration
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.appointmentDuration)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.appointmentHourDuration)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
+            Appointment Minute Duration
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.appointmentMinDuration)
+        </dd>
+        <dt class="col-sm-2">
             Client Name
-            <!-- Html.DisplayNameFor(model => model.Client) -->
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Client.fullName)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Client.clientId)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             Service Name
-            <!-- Html.DisplayNameFor(model => model.Service) -->
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Service.serviceName)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Service.serviceID)
         </dd>
-    </dl>
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.appointmentID">Edit</a> |
