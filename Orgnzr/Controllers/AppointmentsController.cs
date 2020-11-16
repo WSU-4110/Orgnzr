@@ -67,7 +67,7 @@ namespace Orgnzr.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["clientId"] = new SelectList(_context.Contacts, "clientId", "fullname", appointment.clientId);
+            ViewData["clientId"] = new SelectList(_context.Contacts, "clientId", "fullName", appointment.clientId);
             ViewData["serviceId"] = new SelectList(_context.Services, "serviceID", "serviceName", appointment.serviceId);
             return View(appointment);
         }
