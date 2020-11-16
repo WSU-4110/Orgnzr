@@ -67,8 +67,8 @@ namespace Orgnzr.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["clientId"] = new SelectList(_context.Contacts, "clientId", "clientId", appointment.clientId);
-            ViewData["serviceId"] = new SelectList(_context.Services, "serviceID", "serviceID", appointment.serviceId);
+            ViewData["clientId"] = new SelectList(_context.Contacts, "clientId", "fullname", appointment.clientId);
+            ViewData["serviceId"] = new SelectList(_context.Services, "serviceID", "serviceName", appointment.serviceId);
             return View(appointment);
         }
 
@@ -85,8 +85,8 @@ namespace Orgnzr.Controllers
             {
                 return NotFound();
             }
-            ViewData["clientId"] = new SelectList(_context.Contacts, "clientId", "clientId", appointment.clientId);
-            ViewData["serviceId"] = new SelectList(_context.Services, "serviceID", "serviceID", appointment.serviceId);
+            ViewData["clientId"] = new SelectList(_context.Contacts, "clientId", "fullName", appointment.clientId);
+            ViewData["serviceId"] = new SelectList(_context.Services, "serviceID", "serviceName", appointment.serviceId);
             return View(appointment);
         }
 
@@ -122,8 +122,8 @@ namespace Orgnzr.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["clientId"] = new SelectList(_context.Contacts, "clientId", "clientId", appointment.clientId);
-            ViewData["serviceId"] = new SelectList(_context.Services, "serviceID", "serviceID", appointment.serviceId);
+            ViewData["clientId"] = new SelectList(_context.Contacts, "clientId", "fullName", appointment.clientId);
+            ViewData["serviceId"] = new SelectList(_context.Services, "serviceID", "serviceName", appointment.serviceId);
             return View(appointment);
         }
 
