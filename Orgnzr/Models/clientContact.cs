@@ -25,7 +25,12 @@ namespace Orgnzr.Models
                 return firstName + " " + lastName;
             }
         }
+        [Display(Name = "Phone Number")]
+        [DataType(DataType.PhoneNumber)]
         public string phoneNumber { get; set; }
+
+        [Display(Name = "Email-Address")]
+        [DataType(DataType.EmailAddress)]
         public string emailAddress { get; set; }
         public preferredContact? preferredContact { get; set; }
         public ICollection<Appointment> Appointments { get; set; }

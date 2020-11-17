@@ -1,14 +1,17 @@
 ﻿@model IEnumerable<Orgnzr.Models.Inventory>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Restock Inventory";
 }
 
-<h1>Index</h1>
+<h1>Inventory</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
-    <a asp-action="restockInventory" class="btn btn-primary">&laquo; Filter List to Show Restock Items &raquo;</a>
+    <a asp-action="Create" class="btn btn-primary">Add New Product &raquo;</a>
+    &emsp;
+    <a asp-action="Index" class="btn btn-primary">&laquo; Switch to Inventory List &raquo;</a>
+    <a asp-action="Inventory" class="btn btn-primary">&laquo; Switch to Inventory List &raquo;</a>
+
 </p>
 <table class="table">
     <thead>
@@ -28,12 +31,15 @@
                 Restock Amount
                 <!--Html.DisplayNameFor(model => model.restockAmount) -->
             </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
+        @foreach (var item in Model)
+        {
+            if (item.inStockAmount < item.restockAmount)
+
+            {
+        <tr bgcolor="Red">
             <td>
                 @Html.DisplayFor(modelItem => item.Product.productName)
             </td>
@@ -46,12 +52,19 @@
             <td>
                 @Html.DisplayFor(modelItem => item.restockAmount)
             </td>
+
             <td>
-                <a asp-action="Edit" asp-route-id="@item.inventoryID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.inventoryID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.inventoryID">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.productID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.productID">Details</a> |
             </td>
         </tr>
-}
+            }
+        }
+
+
+
+
+
     </tbody>
 </table>
+

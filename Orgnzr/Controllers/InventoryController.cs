@@ -44,11 +44,15 @@ namespace Orgnzr.Controllers
 
             return View(inventory);
         }
+        public async Task<IActionResult> restockInventory()
+        {
+            return View(await _context.Inventories.ToListAsync());
+        }
 
         // GET: Inventory/Create
         public IActionResult Create()
         {
-            ViewData["productID"] = new SelectList(_context.Product, "productID", "productID");
+            ViewData["productID"] = new SelectList(_context.Product, "productID", "productName");
             return View();
         }
 
@@ -65,7 +69,7 @@ namespace Orgnzr.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["productID"] = new SelectList(_context.Product, "productID", "productID", inventory.productID);
+            ViewData["productID"] = new SelectList(_context.Product, "productID", "productName", inventory.productID);
             return View(inventory);
         }
 
@@ -82,7 +86,7 @@ namespace Orgnzr.Controllers
             {
                 return NotFound();
             }
-            ViewData["productID"] = new SelectList(_context.Product, "productID", "productID", inventory.productID);
+            ViewData["productID"] = new SelectList(_context.Product, "productID", "productName", inventory.productID);
             return View(inventory);
         }
 
@@ -118,7 +122,7 @@ namespace Orgnzr.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["productID"] = new SelectList(_context.Product, "productID", "productID", inventory.productID);
+            ViewData["productID"] = new SelectList(_context.Product, "productID", "productName", inventory.productID);
             return View(inventory);
         }
 
