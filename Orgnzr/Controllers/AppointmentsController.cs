@@ -59,7 +59,7 @@ namespace Orgnzr.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("appointmentID,appointmentDay,appoitnmentMonth,appointmentYear,appointmentStartHour,appointmentStartMinute,appointmentFinishHour,appointmentFinishMinute,clientId,serviceId")] Appointment appointment)
+        public async Task<IActionResult> Create([Bind("appointmentID,appointmentDate,appointmentStartTime,appointmentFinishTime,clientId,serviceId")] Appointment appointment)
         {
             if (ModelState.IsValid)
             {
@@ -95,7 +95,7 @@ namespace Orgnzr.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("appointmentID,appointmentDay,appoitnmentMonth,appointmentYear,appointmentStartHour,appointmentStartMinute,appointmentFinishHour,appointmentFinishMinute,clientId,serviceId")] Appointment appointment)
+        public async Task<IActionResult> Edit(int id, [Bind("appointmentID,appointmentDate,appointmentStartTime,appointmentFinishTime,clientId,serviceId")] Appointment appointment)
         {
             if (id != appointment.appointmentID)
             {

@@ -12,12 +12,6 @@
     <None Remove="wwwroot\**" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Remove="Migrations\20201022234310_TestMigrate.cs" />
-    <Compile Remove="Migrations\20201022234310_TestMigrate.Designer.cs" />
-    <Compile Remove="Migrations\20201107013255_AppointmentEntity.cs" />
-    <Compile Remove="Migrations\20201107013255_AppointmentEntity.Designer.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <None Remove="Content\bootstrap\bootstrap-grid.css" />
     <None Remove="Content\bootstrap\bootstrap-grid.css.map" />
     <None Remove="Content\bootstrap\bootstrap-grid.min.css" />
@@ -102,6 +96,8 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+    <PackageReference Include="Syncfusion.EJ2.AspNet.Core" Version="18.3.0.48" />
+    <PackageReference Include="Syncfusion.EJ2.JavaScript" Version="18.3.0.48" />
   </ItemGroup>
   <ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>
 </Project>

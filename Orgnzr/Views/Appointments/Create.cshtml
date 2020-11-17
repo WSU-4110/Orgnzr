@@ -13,46 +13,26 @@
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="appointmentDay" class="control-label">Day</label>
-                <input asp-for="appointmentDay" class="form-control" />
-                <span asp-validation-for="appointmentDay" class="text-danger"></span>
+                <label asp-for="appointmentDate" class="control-label"></label>
+                <input asp-for="appointmentDate" class="form-control" />
+                <span asp-validation-for="appointmentDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="appoitnmentMonth" class="control-label">Month</label>
-                <input asp-for="appoitnmentMonth" class="form-control" />
-                <span asp-validation-for="appoitnmentMonth" class="text-danger"></span>
+                <label asp-for="appointmentStartTime" class="control-label"></label>
+                <input asp-for="appointmentStartTime" class="form-control" />
+                <span asp-validation-for="appointmentStartTime" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="appointmentYear" class="control-label">Year</label>
-                <input asp-for="appointmentYear" class="form-control" />
-                <span asp-validation-for="appointmentYear" class="text-danger"></span>
+                <label asp-for="appointmentFinishTime" class="control-label"></label>
+                <input asp-for="appointmentFinishTime" class="form-control" />
+                <span asp-validation-for="appointmentFinishTime" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="appointmentStartHour" class="control-label">Start Hour</label>
-                <input asp-for="appointmentStartHour" class="form-control" />
-                <span asp-validation-for="appointmentStartHour" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="appointmentStartMinute" class="control-label">Start Minute</label>
-                <input asp-for="appointmentStartMinute" class="form-control" />
-                <span asp-validation-for="appointmentStartMinute" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="appointmentFinishHour" class="control-label">Finish Hour</label>
-                <input asp-for="appointmentFinishHour" class="form-control" />
-                <span asp-validation-for="appointmentFinishHour" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="appointmentFinishMinute" class="control-label">Finish Minute</label>
-                <input asp-for="appointmentFinishMinute" class="form-control" />
-                <span asp-validation-for="appointmentFinishMinute" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="clientId" class="control-label">Client Name</label>
+                <label asp-for="clientId" class="control-label"></label>
                 <select asp-for="clientId" class ="form-control" asp-items="ViewBag.clientId"></select>
             </div>
             <div class="form-group">
-                <label asp-for="serviceId" class="control-label">Service</label>
+                <label asp-for="serviceId" class="control-label"></label>
                 <select asp-for="serviceId" class ="form-control" asp-items="ViewBag.serviceId"></select>
             </div>
             <div class="form-group">

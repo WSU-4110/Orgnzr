@@ -26,31 +26,16 @@ namespace Orgnzr.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("appointmentDay")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("appointmentDate")
+                        .HasColumnType("datetime2");
 
-                    b.Property<double>("appointmentDuration")
-                        .HasColumnType("float");
+                    b.Property<DateTime>("appointmentFinishTime")
+                        .HasColumnType("datetime2");
 
-                    b.Property<int>("appointmentFinishHour")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("appointmentStartTime")
+                        .HasColumnType("datetime2");
 
-                    b.Property<int>("appointmentFinishMinute")
-                        .HasColumnType("int");
-
-                    b.Property<int>("appointmentStartHour")
-                        .HasColumnType("int");
-
-                    b.Property<int>("appointmentStartMinute")
-                        .HasColumnType("int");
-
-                    b.Property<int>("appointmentYear")
-                        .HasColumnType("int");
-
-                    b.Property<int>("appoitnmentMonth")
-                        .HasColumnType("int");
-
-                    b.Property<int>("clientId")
+                    b.Property<int?>("clientId")
                         .HasColumnType("int");
 
                     b.Property<int?>("serviceId")
@@ -184,9 +169,7 @@ namespace Orgnzr.Migrations
                 {
                     b.HasOne("Orgnzr.Models.ClientContact", "Client")
                         .WithMany("Appointments")
-                        .HasForeignKey("clientId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("clientId");
 
                     b.HasOne("Orgnzr.Models.Services", "Service")
                         .WithMany("Appointments")

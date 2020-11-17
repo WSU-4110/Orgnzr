@@ -13,26 +13,20 @@ namespace Orgnzr.Models
     {
         [Key]
         public int appointmentID { get; set; }
-        public int appointmentDay { get; set; }
-        public int appoitnmentMonth { get; set; }
-        public int appointmentYear { get; set; }
-        public int appointmentStartHour { get; set; }
-        public int appointmentStartMinute { get; set; }
-        public int appointmentFinishHour { get; set; }
-        public int appointmentFinishMinute { get; set; }
-        public double appointmentHourDuration { 
-            get
-            {
-                return appointmentFinishHour - appointmentStartHour;
-            } 
-        }
-        public double appointmentMinDuration
-        {
-            get
-            {
-                return appointmentFinishMinute - appointmentStartMinute;
-            }
-        }
+
+        
+        [Required, Display(Name = "Appointment Date")]
+        [DataType(DataType.Date)]
+        public DateTime appointmentDate { get; set; }
+
+        [Required, Display(Name = "Start Time")]
+        [DataType(DataType.Time)]
+        public DateTime appointmentStartTime { get; set; }
+
+        [Required, Display(Name = "Finish Time")]
+        [DataType(DataType.Time)]
+        public DateTime appointmentFinishTime { get; set; }
+
         [ForeignKey("clientId")]
         public virtual ClientContact Client { get; set; }
         [Display(Name = "Client ID")]

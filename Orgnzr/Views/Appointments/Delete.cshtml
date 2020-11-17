@@ -11,72 +11,36 @@
     <h4>Appointment</h4>
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">
-            Appointment Day
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.appointmentDate)
         </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.appointmentDay)
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.appointmentDate)
         </dd>
-        <dt class="col-sm-2">
-            Appointment Month
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.appointmentStartTime)
         </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.appoitnmentMonth)
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.appointmentStartTime)
         </dd>
-        <dt class="col-sm-2">
-            Appointment Year
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.appointmentFinishTime)
         </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.appointmentYear)
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.appointmentFinishTime)
         </dd>
-        <dt class="col-sm-2">
-            Appointment Start Hour
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Client)
         </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.appointmentStartHour)
-        </dd>
-        <dt class="col-sm-2">
-            Appointment Start Minute
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.appointmentStartMinute)
-        </dd>
-        <dt class="col-sm-2">
-            Appointment Finish Hour
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.appointmentFinishHour)
-        </dd>
-        <dt class="col-sm-2">
-            Appointment Finish Minute
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.appointmentFinishMinute)
-        </dd>
-        <dt class="col-sm-2">
-            Appointment Hour Duration
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.appointmentHourDuration)
-        </dd>
-        <dt class="col-sm-2">
-            Appointment Minute Duration
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.appointmentMinDuration)
-        </dd>
-        <dt class="col-sm-2">
-            Client Name
-        </dt>
-        <dd class="col-sm-10">
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Client.fullName)
-        </dd>
-        <dt class="col-sm-2">
-            Service Name
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Service)
         </dt>
-        <dd class="col-sm-10">
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Service.serviceName)
-        </dd>
+        </dd class>
     </dl>
     
     <form asp-action="Delete">
