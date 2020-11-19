@@ -46,7 +46,8 @@ namespace Orgnzr.Controllers
         }
         public async Task<IActionResult> restockInventory()
         {
-            return View(await _context.Inventories.ToListAsync());
+            var contactContext = _context.Inventories.Include(i => i.Product);
+            return View(await contactContext.ToListAsync());
         }
 
         // GET: Inventory/Create

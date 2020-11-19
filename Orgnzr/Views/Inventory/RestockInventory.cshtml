@@ -7,10 +7,9 @@
 <h1>Inventory</h1>
 
 <p>
-    <a asp-action="Create" class="btn btn-primary">Add New Product &raquo;</a>
+    <a asp-action="Create" class="btn btn-primary">Add Product to Inventory &raquo;</a>
     &emsp;
     <a asp-action="Index" class="btn btn-primary">&laquo; Switch to Inventory List &raquo;</a>
-    <a asp-action="Inventory" class="btn btn-primary">&laquo; Switch to Inventory List &raquo;</a>
 
 </p>
 <table class="table">
@@ -54,8 +53,8 @@
             </td>
 
             <td>
-                <a asp-action="Edit" asp-route-id="@item.productID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.productID">Details</a> |
+                <a asp-action="Edit" asp-route-id="@item.inventoryID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.inventoryID">Details</a> |
             </td>
         </tr>
             }
