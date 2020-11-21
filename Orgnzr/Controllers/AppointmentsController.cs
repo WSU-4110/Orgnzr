@@ -56,21 +56,11 @@ namespace Orgnzr.Controllers
             return View();
         }
 
-        // POST: Appointments/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("appointmentID,appointmentDate,appointmentStartTime,appointmentFinishTime,clientId,serviceId")] Appointment appointment)
+        // Send email
+        public void SendEmail (int id, Appointment appointment)
         {
-            if (ModelState.IsValid)
+            if (id == 1)
             {
-                _context.Add(appointment);
-                await _context.SaveChangesAsync();
-
-                if (_context.Contacts.Find(appointment.clientId).preferredContact.ToString() == "Email")
-                {
-                    //sending email notificaiton to end user
                     string MAIL_BODY = "An appointment has been created for "
                         + _context.Contacts.Find(appointment.clientId).fullName.ToString() + " on "
                         + appointment.appointmentDate.ToShortDateString() + ". <br/> <br/>"
@@ -90,7 +80,64 @@ namespace Orgnzr.Controllers
                     smtp.Credentials = new System.Net.NetworkCredential("OrgnzrCorp", "Hunky7139dory");
                     smtp.EnableSsl = true;
                     smtp.Send(mail);
-                }
+            }
+            else if (id == 2)
+            {
+                string MAIL_BODY = "An appointment has been deleted for "
+                      + _context.Contacts.Find(appointment.clientId).fullName.ToString() + " on "
+                      + appointment.appointmentDate.ToShortDateString() + ". <br/> <br/>"
+                      + "Service provided: " + _context.Services.Find(appointment.serviceId).serviceName.ToString() + "<br/>"
+                      + "Appointment time: " + appointment.appointmentStartTime.ToShortTimeString();
+                const string MAIL_SUBJECT = "Appointment Update";
+                MailMessage mail = new MailMessage();
+                mail.To.Add(_context.Contacts.Find(appointment.clientId).emailAddress.ToString());
+                mail.From = new MailAddress("OrgnzrCorp@gmail.com");
+                mail.Subject = MAIL_SUBJECT;
+                mail.Body = MAIL_BODY;
+                mail.IsBodyHtml = true;
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = "smtp.gmail.com";
+                smtp.Port = 587;
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new System.Net.NetworkCredential("OrgnzrCorp", "Hunky7139dory");
+                smtp.EnableSsl = true;
+                smtp.Send(mail);
+            }
+            else if (id == 3)
+            {
+                string MAIL_BODY = "An appointment has been edited for "
+                      + _context.Contacts.Find(appointment.clientId).fullName.ToString() + " on "
+                      + appointment.appointmentDate.ToShortDateString() + ". <br/> <br/>"
+                      + "Service provided: " + _context.Services.Find(appointment.serviceId).serviceName.ToString() + "<br/>"
+                      + "Appointment time: " + appointment.appointmentStartTime.ToShortTimeString();
+                const string MAIL_SUBJECT = "Appointment Update";
+                MailMessage mail = new MailMessage();
+                mail.To.Add(_context.Contacts.Find(appointment.clientId).emailAddress.ToString());
+                mail.From = new MailAddress("OrgnzrCorp@gmail.com");
+                mail.Subject = MAIL_SUBJECT;
+                mail.Body = MAIL_BODY;
+                mail.IsBodyHtml = true;
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = "smtp.gmail.com";
+                smtp.Port = 587;
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new System.Net.NetworkCredential("OrgnzrCorp", "Hunky7139dory");
+                smtp.EnableSsl = true;
+                smtp.Send(mail);
+            }
+        }
+        // POST: Appointments/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("appointmentID,appointmentDate,appointmentStartTime,appointmentFinishTime,clientId,serviceId")] Appointment appointment)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(appointment);
+                await _context.SaveChangesAsync();
+                SendEmail(1, appointment);
                 return RedirectToAction(nameof(Index));
             }
             ViewData["clientId"] = new SelectList(_context.Contacts, "clientId", "fullName", appointment.clientId);
@@ -134,6 +181,7 @@ namespace Orgnzr.Controllers
                 {
                     _context.Update(appointment);
                     await _context.SaveChangesAsync();
+                    SendEmail(3, appointment);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -169,7 +217,7 @@ namespace Orgnzr.Controllers
             {
                 return NotFound();
             }
-
+            SendEmail(2, appointment);
             return View(appointment);
         }
 
