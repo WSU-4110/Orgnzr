@@ -7,7 +7,7 @@ namespace Orgnzr.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateTable(
+           /* migrationBuilder.CreateTable(
                 name: "Contact",
                 columns: table => new
                 {
@@ -23,7 +23,7 @@ namespace Orgnzr.Migrations
                 {
                     table.PrimaryKey("PK_Contact", x => x.clientId);
                 });
-
+           
             migrationBuilder.CreateTable(
                 name: "Product",
                 columns: table => new
@@ -136,8 +136,8 @@ namespace Orgnzr.Migrations
                 name: "IX_Product_productID1",
                 table: "Product",
                 column: "productID1");
-        }
-
+      */  }
+           
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(

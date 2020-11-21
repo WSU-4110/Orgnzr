@@ -15,16 +15,16 @@ namespace Orgnzr.Models
         public int appointmentID { get; set; }
 
         
-        [Required, Display(Name = "Appointment Date")]
+       /* [Required, Display(Name = "Appointment Date")]
         [DataType(DataType.Date)]
-        public DateTime appointmentDate { get; set; }
+        public DateTime appointmentDate { get; set; }*/
 
         [Required, Display(Name = "Start Time")]
-        [DataType(DataType.Time)]
+        [DataType(DataType.DateTime)]
         public DateTime appointmentStartTime { get; set; }
 
         [Required, Display(Name = "Finish Time")]
-        [DataType(DataType.Time)]
+        [DataType(DataType.DateTime)]
         public DateTime appointmentFinishTime { get; set; }
 
         [ForeignKey("clientId")]

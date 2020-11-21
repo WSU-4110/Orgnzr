@@ -73,7 +73,7 @@ namespace Orgnzr.Controllers
                     //sending email notificaiton to end user
                     string MAIL_BODY = "An appointment has been created for "
                         + _context.Contacts.Find(appointment.clientId).fullName.ToString() + " on "
-                        + appointment.appointmentDate.ToShortDateString() + ". <br/> <br/>"
+                        + appointment.appointmentStartTime.ToShortDateString() + ". <br/> <br/>"
                         + "Service provided: " + _context.Services.Find(appointment.serviceId).serviceName.ToString() + "<br/>"
                         + "Appointment time: " + appointment.appointmentStartTime.ToShortTimeString();
                     const string MAIL_SUBJECT = "Appointment Reminder";
