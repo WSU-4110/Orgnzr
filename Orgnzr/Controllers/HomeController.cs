@@ -25,19 +25,13 @@ namespace Orgnzr.Controllers
             return View();
         }
 
-        public IActionResult Contacts()
-        {
-            return View();
-        }
-
         public IActionResult Calendar()
         {
             return View();
         }
-
-        public IActionResult Inventory()
+        public IActionResult Create()
         {
-            return View();
+            return RedirectToAction("Create", "Appointments");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
