@@ -70,26 +70,7 @@ namespace Orgnzr.Controllers
 
                 if (_context.Contacts.Find(appointment.clientId).preferredContact.ToString() == "Email")
                 {
-                    //sending email notificaiton to end user
-                    string MAIL_BODY = "An appointment has been created for "
-                        + _context.Contacts.Find(appointment.clientId).fullName.ToString() + " on "
-                        + appointment.appointmentDate.ToShortDateString() + ". <br/> <br/>"
-                        + "Service provided: " + _context.Services.Find(appointment.serviceId).serviceName.ToString() + "<br/>"
-                        + "Appointment time: " + appointment.appointmentStartTime.ToShortTimeString();
-                    const string MAIL_SUBJECT = "Appointment Reminder";
-                    MailMessage mail = new MailMessage();
-                    mail.To.Add(_context.Contacts.Find(appointment.clientId).emailAddress.ToString());
-                    mail.From = new MailAddress("OrgnzrCorp@gmail.com");
-                    mail.Subject = MAIL_SUBJECT;
-                    mail.Body = MAIL_BODY;
-                    mail.IsBodyHtml = true;
-                    SmtpClient smtp = new SmtpClient();
-                    smtp.Host = "smtp.gmail.com";
-                    smtp.Port = 587;
-                    smtp.UseDefaultCredentials = false;
-                    smtp.Credentials = new System.Net.NetworkCredential("OrgnzrCorp", "Hunky7139dory");
-                    smtp.EnableSsl = true;
-                    smtp.Send(mail);
+                    sendEmail(appointment);
                 }
                 return RedirectToAction(nameof(Index));
             }
@@ -98,6 +79,29 @@ namespace Orgnzr.Controllers
             return View(appointment);
         }
 
+        public void sendEmail(Appointment appointment)
+        {
+            //sending email notificaiton to end user
+            string MAIL_BODY = "An appointment has been created for "
+                + _context.Contacts.Find(appointment.clientId).fullName.ToString() + " on "
+                + appointment.appointmentDate.ToShortDateString() + ". <br/> <br/>"
+                + "Service provided: " + _context.Services.Find(appointment.serviceId).serviceName.ToString() + "<br/>"
+                + "Appointment time: " + appointment.appointmentStartTime.ToShortTimeString();
+            const string MAIL_SUBJECT = "Appointment Reminder";
+            MailMessage mail = new MailMessage();
+            mail.To.Add(_context.Contacts.Find(appointment.clientId).emailAddress.ToString());
+            mail.From = new MailAddress("OrgnzrCorp@gmail.com");
+            mail.Subject = MAIL_SUBJECT;
+            mail.Body = MAIL_BODY;
+            mail.IsBodyHtml = true;
+            SmtpClient smtp = new SmtpClient();
+            smtp.Host = "smtp.gmail.com";
+            smtp.Port = 587;
+            smtp.UseDefaultCredentials = false;
+            smtp.Credentials = new System.Net.NetworkCredential("OrgnzrCorp", "Hunky7139dory");
+            smtp.EnableSsl = true;
+            smtp.Send(mail);
+        }
         // GET: Appointments/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
