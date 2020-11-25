@@ -61,9 +61,15 @@ namespace Orgnzr.Controllers
         {
             if (id == 1)
             {
+                _context.Add(appointment);
+                await _context.SaveChangesAsync();
+
+                if (_context.Contacts.Find(appointment.clientId).preferredContact.ToString() == "Email")
+                {
+                    //sending email notificaiton to end user
                     string MAIL_BODY = "An appointment has been created for "
                         + _context.Contacts.Find(appointment.clientId).fullName.ToString() + " on "
-                        + appointment.appointmentStartTime.ToShortDateString() + ". <br/> <br/>"
+                        + appointment.appointmentDate.ToShortDateString() + ". <br/> <br/>"
                         + "Service provided: " + _context.Services.Find(appointment.serviceId).serviceName.ToString() + "<br/>"
                         + "Appointment time: " + appointment.appointmentStartTime.ToShortTimeString();
                     const string MAIL_SUBJECT = "Appointment Reminder";

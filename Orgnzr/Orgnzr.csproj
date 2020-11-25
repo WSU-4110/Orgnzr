@@ -12,6 +12,10 @@
     <None Remove="wwwroot\**" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Remove="Migrations\20201125001548_appointmentEntity.cs" />
+    <Compile Remove="Migrations\20201125001548_appointmentEntity.Designer.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <None Remove="Content\bootstrap\bootstrap-grid.css" />
     <None Remove="Content\bootstrap\bootstrap-grid.css.map" />
     <None Remove="Content\bootstrap\bootstrap-grid.min.css" />
@@ -98,6 +102,9 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
     <PackageReference Include="Syncfusion.EJ2.AspNet.Core" Version="18.3.0.48" />
     <PackageReference Include="Syncfusion.EJ2.JavaScript" Version="18.3.0.48" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Migrations\" />
   </ItemGroup>
   <ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>
 </Project>

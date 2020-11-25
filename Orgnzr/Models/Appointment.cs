@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 namespace Orgnzr.Models
 {
 
+
     public class Appointment
     {
         [Key]
@@ -36,6 +37,8 @@ namespace Orgnzr.Models
         public virtual Services Service { get; set; }
         [Display(Name = "Service ID")]
         public virtual int? serviceId { get; set; }
+
+
 
     }
 }
