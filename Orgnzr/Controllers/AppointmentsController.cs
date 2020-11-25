@@ -91,7 +91,7 @@ namespace Orgnzr.Controllers
             {
                 string MAIL_BODY = "An appointment has been deleted for "
                       + _context.Contacts.Find(appointment.clientId).fullName.ToString() + " on "
-                      + appointment.appointmentDate.ToShortDateString() + ". <br/> <br/>"
+                      + appointment.appointmentStartTime.ToShortDateString() + ". <br/> <br/>"
                       + "Service provided: " + _context.Services.Find(appointment.serviceId).serviceName.ToString() + "<br/>"
                       + "Appointment time: " + appointment.appointmentStartTime.ToShortTimeString();
                 const string MAIL_SUBJECT = "Appointment Update";
@@ -113,7 +113,7 @@ namespace Orgnzr.Controllers
             {
                 string MAIL_BODY = "An appointment has been edited for "
                       + _context.Contacts.Find(appointment.clientId).fullName.ToString() + " on "
-                      + appointment.appointmentDate.ToShortDateString() + ". <br/> <br/>"
+                      + appointment.appointmentStartTime.ToShortDateString() + ". <br/> <br/>"
                       + "Service provided: " + _context.Services.Find(appointment.serviceId).serviceName.ToString() + "<br/>"
                       + "Appointment time: " + appointment.appointmentStartTime.ToShortTimeString();
                 const string MAIL_SUBJECT = "Appointment Update";
@@ -137,7 +137,7 @@ namespace Orgnzr.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("appointmentID,appointmentDate,appointmentStartTime,appointmentFinishTime,clientId,serviceId")] Appointment appointment)
+        public async Task<IActionResult> Create([Bind("appointmentID,appointmentStartTime,appointmentFinishTime,clientId,serviceId")] Appointment appointment)
         {
             if (ModelState.IsValid)
             {
@@ -174,7 +174,7 @@ namespace Orgnzr.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("appointmentID,appointmentDate,appointmentStartTime,appointmentFinishTime,clientId,serviceId")] Appointment appointment)
+        public async Task<IActionResult> Edit(int id, [Bind("appointmentID,appointmentStartTime,appointmentFinishTime,clientId,serviceId")] Appointment appointment)
         {
             if (id != appointment.appointmentID)
             {
