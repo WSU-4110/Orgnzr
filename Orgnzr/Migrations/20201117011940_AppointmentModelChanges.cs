@@ -94,7 +94,6 @@ namespace Orgnzr.Migrations
                 {
                     appointmentID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    appointmentDate = table.Column<DateTime>(nullable: false),
                     appointmentStartTime = table.Column<DateTime>(nullable: false),
                     appointmentFinishTime = table.Column<DateTime>(nullable: false),
                     clientId = table.Column<int>(nullable: true),
