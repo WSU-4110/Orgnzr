@@ -1,15 +1,13 @@
 ﻿@model IEnumerable<Orgnzr.Models.Appointment>
 
 @{
-    ViewData["Title"] = "Appointments";
+    ViewData["Title"] = "Waitlist";
 }
 
-<h1>Appointments</h1>
+<h1>Waitlisted Appointments</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
-    &emsp;
-    <a asp-action="Waitlist" class="btn btn-primary"> Waitlist &raquo;</a>
+    <a asp-action="Index" class="btn btn-primary"> Appointments &raquo;</a>
 </p>
 <table class="table">
     <thead>
@@ -33,7 +31,7 @@
     <tbody>
         @foreach (var item in Model)
         {
-            if (item.waitlistAppt.ToString().Equals("No"))
+            if (item.waitlistAppt.ToString().Equals("Yes"))
             {
             <tr>
 
@@ -49,12 +47,11 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Service.serviceName)
                 </td>
-                
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.appointmentID">Edit</a> |
                     <a asp-action="Details" asp-route-id="@item.appointmentID">Details</a> |
                     <a asp-action="Delete" asp-route-id="@item.appointmentID">Delete</a> |
-                    <a asp-action="AddToWaitlist" asp-route-id="@item.appointmentID">Add to Waitlist</a>
+                    <a asp-action="RemoveFromWaitlist" asp-route-id="@item.appointmentID">Remove from Waitlist</a>
                 </td>
             </tr>
             }

@@ -8,7 +8,10 @@ using System.Threading.Tasks;
 
 namespace Orgnzr.Models
 {
-
+    public enum waitlistAppt
+    {
+        Yes, No
+    }
 
     public class Appointment
     {
@@ -38,7 +41,8 @@ namespace Orgnzr.Models
         [Display(Name = "Service ID")]
         public virtual int? serviceId { get; set; }
 
-
+        [Display(Name = "Add appointment to waitlist")]
+        public waitlistAppt? waitlistAppt { get; set; }
 
     }
 }

@@ -28,6 +28,12 @@ namespace Orgnzr.Controllers
             return View(await contactContext.ToListAsync());
         }
 
+        public async Task<IActionResult> Waitlist()
+        {
+            var contactContext = _context.Appointments.Include(a => a.Client).Include(a => a.Service);
+            return View(await contactContext.ToListAsync());
+        }
+
         // GET: Appointments/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -57,21 +63,22 @@ namespace Orgnzr.Controllers
         }
 
         // Send email
-        public void SendEmail (int id, Appointment appointment)
+        public void SendEmail(int emailID, Appointment appointment)
         {
-            if (id == 1)
+            if (emailID == 1)
             {
                 _context.Add(appointment);
-                await _context.SaveChangesAsync();
+
 
                 if (_context.Contacts.Find(appointment.clientId).preferredContact.ToString() == "Email")
                 {
                     //sending email notificaiton to end user
                     string MAIL_BODY = "An appointment has been created for "
                         + _context.Contacts.Find(appointment.clientId).fullName.ToString() + " on "
-                        + appointment.appointmentDate.ToShortDateString() + ". <br/> <br/>"
+                        + appointment.appointmentStartTime.ToShortDateString() + ". <br/> <br/>"
                         + "Service provided: " + _context.Services.Find(appointment.serviceId).serviceName.ToString() + "<br/>"
-                        + "Appointment time: " + appointment.appointmentStartTime.ToShortTimeString();
+                        + "Appointment time: " + appointment.appointmentStartTime.ToShortTimeString() + " - "
+                        + appointment.appointmentFinishTime.ToShortTimeString();
                     const string MAIL_SUBJECT = "Appointment Reminder";
                     MailMessage mail = new MailMessage();
                     mail.To.Add(_context.Contacts.Find(appointment.clientId).emailAddress.ToString());
@@ -86,15 +93,17 @@ namespace Orgnzr.Controllers
                     smtp.Credentials = new System.Net.NetworkCredential("OrgnzrCorp", "Hunky7139dory");
                     smtp.EnableSsl = true;
                     smtp.Send(mail);
+                }
             }
-            else if (id == 2)
+            else if (emailID == 2)
             {
                 string MAIL_BODY = "An appointment has been deleted for "
                       + _context.Contacts.Find(appointment.clientId).fullName.ToString() + " on "
                       + appointment.appointmentStartTime.ToShortDateString() + ". <br/> <br/>"
                       + "Service provided: " + _context.Services.Find(appointment.serviceId).serviceName.ToString() + "<br/>"
-                      + "Appointment time: " + appointment.appointmentStartTime.ToShortTimeString();
-                const string MAIL_SUBJECT = "Appointment Update";
+                      + "Appointment time: " + appointment.appointmentStartTime.ToShortTimeString() + " - "
+                        + appointment.appointmentFinishTime.ToShortTimeString();
+                const string MAIL_SUBJECT = "Appointment Cancellation";
                 MailMessage mail = new MailMessage();
                 mail.To.Add(_context.Contacts.Find(appointment.clientId).emailAddress.ToString());
                 mail.From = new MailAddress("OrgnzrCorp@gmail.com");
@@ -109,13 +118,14 @@ namespace Orgnzr.Controllers
                 smtp.EnableSsl = true;
                 smtp.Send(mail);
             }
-            else if (id == 3)
+            else if (emailID == 3)
             {
                 string MAIL_BODY = "An appointment has been edited for "
                       + _context.Contacts.Find(appointment.clientId).fullName.ToString() + " on "
                       + appointment.appointmentStartTime.ToShortDateString() + ". <br/> <br/>"
                       + "Service provided: " + _context.Services.Find(appointment.serviceId).serviceName.ToString() + "<br/>"
-                      + "Appointment time: " + appointment.appointmentStartTime.ToShortTimeString();
+                      + "Appointment time: " + appointment.appointmentStartTime.ToShortTimeString() + " - "
+                        + appointment.appointmentFinishTime.ToShortTimeString();
                 const string MAIL_SUBJECT = "Appointment Update";
                 MailMessage mail = new MailMessage();
                 mail.To.Add(_context.Contacts.Find(appointment.clientId).emailAddress.ToString());
@@ -131,13 +141,14 @@ namespace Orgnzr.Controllers
                 smtp.EnableSsl = true;
                 smtp.Send(mail);
             }
+            
         }
         // POST: Appointments/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("appointmentID,appointmentStartTime,appointmentFinishTime,clientId,serviceId")] Appointment appointment)
+        public async Task<IActionResult> Create([Bind("appointmentID,appointmentStartTime,appointmentFinishTime,clientId,serviceId,waitlistAppt")] Appointment appointment)
         {
             if (ModelState.IsValid)
             {
@@ -149,6 +160,20 @@ namespace Orgnzr.Controllers
             ViewData["clientId"] = new SelectList(_context.Contacts, "clientId", "fullName", appointment.clientId);
             ViewData["serviceId"] = new SelectList(_context.Services, "serviceID", "serviceName", appointment.serviceId);
             return View(appointment);
+        }
+        public ActionResult AddToWaitlistAsync(int id)
+        {
+            var appointment = _context.Appointments.Find(id);
+            appointment.waitlistAppt = 0;
+            _context.SaveChanges();
+            return Redirect("https://localhost:44328/Appointments/Waitlist");
+        }
+        public ActionResult RemoveFromWaitlistAsync(int id)
+        {
+            var appointment = _context.Appointments.Find(id);
+            appointment.waitlistAppt = waitlistAppt.No;
+            _context.SaveChanges();
+            return Redirect("https://localhost:44328/Appointments");
         }
 
         // GET: Appointments/Edit/5
@@ -174,7 +199,7 @@ namespace Orgnzr.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("appointmentID,appointmentStartTime,appointmentFinishTime,clientId,serviceId")] Appointment appointment)
+        public async Task<IActionResult> Edit(int id, [Bind("appointmentID,appointmentStartTime,appointmentFinishTime,clientId,serviceId,waitlistAppt")] Appointment appointment)
         {
             if (id != appointment.appointmentID)
             {
@@ -185,9 +210,10 @@ namespace Orgnzr.Controllers
             {
                 try
                 {
+                    SendEmail(3, appointment);
                     _context.Update(appointment);
                     await _context.SaveChangesAsync();
-                    SendEmail(3, appointment);
+                    
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -223,7 +249,7 @@ namespace Orgnzr.Controllers
             {
                 return NotFound();
             }
-            SendEmail(2, appointment);
+  
             return View(appointment);
         }
 
@@ -233,6 +259,7 @@ namespace Orgnzr.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var appointment = await _context.Appointments.FindAsync(id);
+            SendEmail(2, appointment);
             _context.Appointments.Remove(appointment);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

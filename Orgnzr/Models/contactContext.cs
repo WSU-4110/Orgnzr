@@ -48,6 +48,5 @@ namespace Orgnzr.Data
                 .WithOne(e => e.Service);
 
         }
-        
     }
 }
