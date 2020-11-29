@@ -1,9 +1,188 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+<head>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            min-height: 100vh;
+            padding: 4rem 0;
+            font-family: -system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        }
 
+        table {
+            width: 100%;
+            max-width: 50rem;
+        }
+
+            table tr:nth-child(even) th {
+                color: #ccc;
+                font-weight: normal;
+            }
+
+            table th, table td {
+                padding: 0.5rem 1rem;
+            }
+
+            table th {
+                font-weight: normal;
+                border-top: thin dotted #ccc;
+            }
+
+            table td {
+                font-size: 0.8rem;
+                font-weight: bold;
+                line-height: 1.4;
+                border-radius: 0.2rem;
+                transition: opacity 0.3s ease;
+            }
+
+                table td > span {
+                    font-size: 0.8em;
+                    font-weight: normal;
+                    display: block;
+                    width: 100%;
+                }
+
+        .haircut {
+            background-color: #ffa726;
+        }
+
+        .tattoo {
+            background-color: #9ccc65;
+        }
+
+        .hair-style {
+            background-color: #ff8a65;
+        }
+
+        .massage {
+            background-color: #b3e5fc;
+        }
+
+        .nails {
+            background-color: #81d4fa;
+        }
+
+        .closed {
+            background-color: #26c6da;
+        }
+
+    </style>
+</head>
 <div class="text-center">
     <h1 class="display-4">Calendar</h1>
+
+    <table>
+        <body>
+            <tr>
+                <th>08:00</th>
+                <td colspan="4" rowspan="2" class="closed">Openning Prep</td>
+            </tr>
+            <tr>
+                <th>08:30</th>
+            </tr>
+            <tr>
+                <th>09:00</th>
+                <td colspan="4" class="haircut">Speaker One <span>Haircut</span></td>
+            </tr>
+            <tr>
+                <th>09:30</th>
+                <td colspan="4" class="haircut">Speaker Two <span>Haircut</span></td>
+            </tr>
+            <tr>
+                <th>10:00</th>
+                <td colspan="4" class="haircut">Speaker Three <span>Haircut</span></td>
+            </tr>
+            <tr>
+                <th>10:30</th>
+                <td colspan="4" class="haircut">Speaker Four <span>Haircut</span></td>
+            </tr>
+            <tr>
+                <th>11:00</th>
+                <td rowspan="5" class="tattoo">Speaker Five <span>Tattoo</span></td>
+                <td rowspan="5" class="hair-style">Speaker Six <span>Hair Styling</span></td>
+                <td rowspan="5" class="massage">Speaker Seven <span>Massage</span></td>
+                <td rowspan="2" class="closed">Lunch</td>
+            </tr>
+            <tr>
+                <th>11:30</th>
+            </tr>
+            <tr>
+                <th>12:00</th>
+                <td rowspan="3" class="closed">Break</td>
+            </tr>
+            <tr>
+                <th>12:30</th>
+            </tr>
+            <tr>
+                <th>13:00</th>
+            </tr>
+            <tr>
+                <th>13:30</th>
+                <td colspan="4" rowspan="2" class="haircut">Speaker Eight <span>Haircut</span></td>
+            </tr>
+            <tr>
+                <th>14:00</th>
+            </tr>
+            <tr>
+                <th>14:30</th>
+                <td colspan="4" rowspan="8" class="closed">Break</td>
+            </tr>
+            <tr>
+                <th>15:00</th>
+            </tr>
+            <tr>
+                <th>15:30</th>
+            </tr>
+            <tr>
+                <th>16:00</th>
+            </tr>
+            <tr>
+                <th>16:30</th>
+            </tr>
+            <tr>
+                <th>17:00</th>
+            </tr>
+            <tr>
+                <th>17:30</th>
+            </tr>
+            <tr>
+                <th>18:00</th>
+            </tr>
+            <tr>
+                <th>18:30</th>
+                <td colspan="4" class="haircut">Speaker Nine <span>Haircut </span></td>
+            </tr>
+            <tr>
+                <th>19:00</th>
+                <td colspan="2" rowspan="2" class="haircut">Speaker Ten <span>Haircut</span></td>
+                <td colspan="2" rowspan="2" class="nails">Speaker Eleven <span>Nails</span></td>
+            </tr>
+            <tr>
+                <th>19:30</th>
+            </tr>
+            <tr>
+                <th>20:00</th>
+                <td colspan="2" class="massage">James <span>Massage</span></td>
+                <td class="nails">Steve <span>Nails</span></td>
+                <td class="nails">Steve <span>Nails</span></td>
+            </tr>
+            <tr>
+                <th>20:30</th>
+                <td colspan="4" rowspan="2" class="closed">Closing Prep</td>
+            </tr>
+            <tr>
+                <th>21:00</th>
+            </tr>
+        </body>
+    </table>
+
+
+
     <p>
         <a asp-action="Create">Create New Appointment</a>
     </p>

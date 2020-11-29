@@ -6,7 +6,7 @@ namespace Orgnzr.Migrations
     public partial class WaitListPropertyToAppointmentEntity : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
-        {
+        {/*
             migrationBuilder.CreateTable(
                 name: "Contact",
                 columns: table => new
@@ -23,7 +23,7 @@ namespace Orgnzr.Migrations
                 {
                     table.PrimaryKey("PK_Contact", x => x.clientId);
                 });
-
+            
             migrationBuilder.CreateTable(
                 name: "Product",
                 columns: table => new
@@ -50,7 +50,7 @@ namespace Orgnzr.Migrations
                         principalColumn: "productID",
                         onDelete: ReferentialAction.Restrict);
                 });
-
+              
             migrationBuilder.CreateTable(
                 name: "Services",
                 columns: table => new
@@ -116,28 +116,28 @@ namespace Orgnzr.Migrations
                         principalColumn: "serviceID",
                         onDelete: ReferentialAction.Restrict);
                 });
-
+              
             migrationBuilder.CreateIndex(
                 name: "IX_Appointments_clientId",
                 table: "Appointments",
                 column: "clientId");
-
+                
             migrationBuilder.CreateIndex(
                 name: "IX_Appointments_serviceId",
                 table: "Appointments",
                 column: "serviceId");
-
+              
             migrationBuilder.CreateIndex(
                 name: "IX_Inventory_productID",
                 table: "Inventory",
                 column: "productID");
-
+              
             migrationBuilder.CreateIndex(
                 name: "IX_Product_productID1",
                 table: "Product",
-                column: "productID1");
+                column: "productID1");  */
         }
-
+              
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
