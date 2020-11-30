@@ -6,7 +6,7 @@ namespace Orgnzr.Migrations
     public partial class WaitListPropertyToAppointmentEntity : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
-        {/*
+        {
             migrationBuilder.CreateTable(
                 name: "Contact",
                 columns: table => new
@@ -135,7 +135,7 @@ namespace Orgnzr.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Product_productID1",
                 table: "Product",
-                column: "productID1");  */
+                column: "productID1");  
         }
               
         protected override void Down(MigrationBuilder migrationBuilder)
