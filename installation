@@ -1,0 +1,5 @@
+No necessary programs need to be installed outside of web browsers in order to access this program. 
+
+Unfortunately this program is not in production and is still in development phase so the access of the web site is not fully functioning. 
+In order to access the application at its current state, you will need to have access to MS SQL Server Express, Visual Studio 2019, and the project's code 
+which is supplied in the Github code sections here.
