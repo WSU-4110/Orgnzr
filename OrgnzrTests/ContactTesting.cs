@@ -11,7 +11,6 @@ using Orgnzr.Models;
 using System.Web;
 using System.Net.Mail;
 using Orgnzr.Controllers;
-using Microsoft.VisualStudio.QualityTools.WebTestFramework;
 using Microsoft.AspNetCore.Http;
 using NUnit.Framework;
 
