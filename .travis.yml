@@ -6,4 +6,4 @@ install:
 - dotnet restore 
 script: 
 - dotnet build 
-- dotnet test Orgnzr/OrgnzrTests/OrgnzrTests.csproj
+- dotnet test OrgnzrTests/OrgnzrTests.csproj
