@@ -15,11 +15,17 @@ namespace Orgnzr.Controllers
     public class AppointmentsController : Controller
     {
         private readonly contactContext _context;
+        private Appointment _appointment;
 
         public AppointmentsController(contactContext context)
         {
             _context = context;
         }
+
+        //public AppointmentsController()
+        //{
+        //    _appointment = new Appointment();
+        //}
 
         // GET: Appointments
         public async Task<IActionResult> Index()
