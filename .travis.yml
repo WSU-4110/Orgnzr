@@ -1,9 +1,9 @@
 language: csharp 
 mono: none 
 dist: xenial 
-dotnet: 3.1 
+dotnet: 5.0.100
 install: 
 - dotnet restore 
 script: 
 - dotnet build 
-- dotnet test OrgnzrTests/OrgnzrTests.csproj
+- dotnet test Orgnzr/OrgnzrTests/OrgnzrTests.csproj
