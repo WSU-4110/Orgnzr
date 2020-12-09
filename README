@@ -1,0 +1,11 @@
+This project is meant to be a loose CRM application to help small businesses track appointments and maintain their day-to-day functions. 
+
+Important packages that will be needed to work on the project include Entity Framework Core, ASP.NET.
+
+The original entities included with  the project include an appointment, product, inventory, contacts, and services entities. 
+
+The main architectural style implemented by this project is MVC in which each entity has a model to track necessary fields, a set of views with forms to capture inputs for those fields and a controller to write the code to the database and to perform other various operations.
+
+This project still needs a way to display appointments in an interactive way such that appointments can be slid in a daily or a weekly view. 
+This project still needs a way to create user accounts such that multiple people and companies can access the application separately.
+This project still needs a way to assign roles to the different functions to limit a user's ability to access all functionalities within the application.
